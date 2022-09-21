@@ -41,12 +41,12 @@ export const userColumns = [
 ];
 
 //temporary data
-var data2 = [];
-axios.get("https://gorecce-backend.herokuapp.com/users").then((response) => {
-  const data = response.data;
-  console.log(data);
+const userdata2 =async ()=>{
+  var data2 = [];
+var {data} = await axios.get("https://gorecce-backend.herokuapp.com/users")
+console.log(data);
   for (let i = 0; i < data.length; i++) {
-    const user = {
+    data2[i] = {
       email: data[i].personalInfo.email,
       username: data[i].personalInfo.fullName,
       Mobile: data[i].personalInfo.mobile,
@@ -61,12 +61,12 @@ axios.get("https://gorecce-backend.herokuapp.com/users").then((response) => {
       UserID: data[i].id,
       bookingInfo: data[i].listedLocations
     }
-    console.log(user);
-    data2.push(user);
+    // data2.push(user);
   }
-});
-console.log(data2);
-export const userRows = data2;
+  console.log(data2)
+  return data2;
+}
+export const userRows = userdata2;
 
 export const userRows2 = [
   {
