@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-
-const Photoshootreq = () => {
+const Blog = () => {
     const userColumns = [
 		{ field: "id", headerName: "ID", width: 20 },
 		{
@@ -32,8 +31,8 @@ const Photoshootreq = () => {
 			width: 150,
 		},
         {
-			field: "address",
-			headerName: "Address",
+			field: "message",
+			headerName: "Message",
 			width: 330,
 		},
 	];
@@ -42,7 +41,7 @@ const Photoshootreq = () => {
 	useEffect(() => {
 		var data2 = [];
 		axios
-			.get("https://gorecce-backend.herokuapp.com/getPhotoshoot")
+			.get("https://gorecce-backend.herokuapp.com/getContact")
 			.then((response) => {
 				const data = response.data;
 				console.log(data);
@@ -52,7 +51,7 @@ const Photoshootreq = () => {
 						email: data[i].email,
 						username: data[i].fullName,
 						mobile: data[i].mobile,
-						address:data[i].address
+						message:data[i].message
 					};
 					data2 = [...data2, user];
 				}
@@ -64,7 +63,10 @@ const Photoshootreq = () => {
   return (
     <div className="datatable">
 			<div className="datatableTitle">
-				Photoshoot Requests
+				Blogs
+				<Link to="/users/new" className="link">
+					Add Blog
+				</Link>
 			</div>
 			<DataGrid
 				className="datagrid"
@@ -77,4 +79,4 @@ const Photoshootreq = () => {
   )
 }
 
-export default Photoshootreq
+export default Blog

@@ -76,6 +76,15 @@ const Sidebar = () => {
               <span>Incomplete Listings</span>
             </li>
           </Link>
+          <p className="title">Blogs Management</p>
+          <Link to="/blogs" style={{ textDecoration: "none" }}>
+            <li>
+              <EditLocationAltIcon className="icon" />
+              <span>Blogs</span>
+            </li>
+          </Link>
+
+
           <p className="title">USER</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />

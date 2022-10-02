@@ -76,7 +76,6 @@ const Incomplete1 = () => {
       columns={userColumns.concat(actionColumn)}
       pageSize={9}
       rowsPerPageOptions={[9]}
-      checkboxSelection
     />
   </div>
   )
