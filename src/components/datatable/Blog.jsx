@@ -64,7 +64,7 @@ const Blog = () => {
     <div className="datatable">
 			<div className="datatableTitle">
 				Blogs
-				<Link to="/users/new" className="link">
+				<Link to="/createblog" className="link">
 					Add Blog
 				</Link>
 			</div>

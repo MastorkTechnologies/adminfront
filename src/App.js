@@ -16,6 +16,7 @@ import LocReq from "./components/Sidebar Files/LocaReq";
 import Photoshoot from "./components/Sidebar Files/Photoshoot";
 import Contactus from "./components/Sidebar Files/Contactus";
 import Blogs from "./components/Sidebar Files/Blogs";
+import CreateBlog from "./components/Sidebar Files/CreateBlog";
 
 function App() {
 	const { darkMode } = useContext(DarkModeContext);
@@ -54,6 +55,9 @@ function App() {
 						</Route>
 						<Route path="blogs">
 							<Route index element={<Blogs/>} />
+						</Route>
+						<Route path="createblog">
+							<Route index element={<CreateBlog/>} />
 						</Route>
 					</Route>
 				</Routes>
