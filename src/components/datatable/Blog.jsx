@@ -9,31 +9,26 @@ const Blog = () => {
     const userColumns = [
 		{ field: "id", headerName: "ID", width: 20 },
 		{
-			field: "user",
-			headerName: "User",
+			field: "title",
+			headerName: "Title",
 			width: 130,
 			renderCell: (params) => {
 				return (
 					<div className="cellWithImg">
-						{params.row.username}
+						{params.row.title}
 					</div>
 				);
 			},
 		},
 		{
-			field: "email",
-			headerName: "Email",
+			field: "subheading",
+			headerName: "SubHeading",
 			width: 200,
 		},
 		{
-			field: "mobile",
-			headerName: "Phone Number",
+			field: "date",
+			headerName: "Date",
 			width: 150,
-		},
-        {
-			field: "message",
-			headerName: "Message",
-			width: 330,
 		},
 	];
 	const [data, setData] = useState([]);
@@ -41,17 +36,16 @@ const Blog = () => {
 	useEffect(() => {
 		var data2 = [];
 		axios
-			.get("https://gorecce-backend.herokuapp.com/getContact")
+			.get("https://gorecceback.herokuapp.com/getBlogs")
 			.then((response) => {
 				const data = response.data;
 				console.log(data);
 				for (let i = 0; i < data.length; i++) {
 					const user = {
 						id: data[i].id,
-						email: data[i].email,
-						username: data[i].fullName,
-						mobile: data[i].mobile,
-						message:data[i].message
+						title: data[i].title,
+						subheading: data[i].subheading,
+						date: data[i].date,
 					};
 					data2 = [...data2, user];
 				}

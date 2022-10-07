@@ -41,7 +41,7 @@ const Contact = () => {
 	useEffect(() => {
 		var data2 = [];
 		axios
-			.get("https://gorecce-backend.herokuapp.com/getContact")
+			.get("https://gorecceback.herokuapp.com/getContact")
 			.then((response) => {
 				const data = response.data;
 				console.log(data);
