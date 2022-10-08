@@ -38,7 +38,7 @@ const Locations = () => {
 	useEffect(() => {
 		var data2 = [];
 		axios
-			.get("https://gorecce-backend.herokuapp.com/getlocations")
+			.get("https://gorecceback.herokuapp.com/getlocations")
 			.then((response) => {
 				const data = response.data;
 				console.log("Location Data", data);
@@ -84,7 +84,6 @@ const Locations = () => {
 				columns={userColumns.concat(actionColumn)}
 				pageSize={9}
 				rowsPerPageOptions={[9]}
-				checkboxSelection
 			/>
 		</div>
 	);

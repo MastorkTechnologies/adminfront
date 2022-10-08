@@ -36,7 +36,7 @@ const Incomplete1 = () => {
   useEffect(() => {
     var data2 = [];
     axios
-      .get("https://gorecce-backend.herokuapp.com/incomplist")
+      .get("https://gorecceback.herokuapp.com/incomplist")
       .then((response) => {
         const data = response.data;
         for (let i = 0; i < data.length; i++) {
@@ -76,7 +76,6 @@ const Incomplete1 = () => {
       columns={userColumns.concat(actionColumn)}
       pageSize={9}
       rowsPerPageOptions={[9]}
-      checkboxSelection
     />
   </div>
   )

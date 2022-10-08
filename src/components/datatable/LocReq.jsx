@@ -7,7 +7,7 @@ import "./datatable.scss";
 const LocReq = () => {
   const approveUser = (id) => {
     axios
-    .put("https://gorecce-backend.herokuapp.com/approveloc/"+id)
+    .put("https://gorecceback.herokuapp.com/approveloc/"+id)
     .then(console.log("Approve Location"));
   };
   const userColumns = [
@@ -41,7 +41,7 @@ const LocReq = () => {
   useEffect(() => {
     var data2 = [];
     axios
-      .get("https://gorecce-backend.herokuapp.com/locreqs")
+      .get("https://gorecceback.herokuapp.com/locreqs")
       .then((response) => {
         const data = response.data;
         for (let i = 0; i < data.locations.length; i++) {
@@ -92,7 +92,6 @@ const LocReq = () => {
         columns={userColumns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
-        checkboxSelection
       />
     </div>
   );

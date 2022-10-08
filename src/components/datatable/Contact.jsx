@@ -41,7 +41,7 @@ const Contact = () => {
 	useEffect(() => {
 		var data2 = [];
 		axios
-			.get("http://localhost:8000/getContact")
+			.get("https://gorecceback.herokuapp.com/getContact")
 			.then((response) => {
 				const data = response.data;
 				console.log(data);
@@ -74,7 +74,6 @@ const Contact = () => {
 				columns={userColumns}
 				pageSize={9}
 				rowsPerPageOptions={[9]}
-				checkboxSelection
 			/>
 		</div>
   )

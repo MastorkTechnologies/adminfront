@@ -9,7 +9,7 @@ import ContactPageIcon from '@mui/icons-material/ContactPage';
 import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 import AddLocationIcon from '@mui/icons-material/AddLocation';
 import EditLocationAltIcon from '@mui/icons-material/EditLocationAlt';
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; 
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 
@@ -76,6 +76,15 @@ const Sidebar = () => {
               <span>Incomplete Listings</span>
             </li>
           </Link>
+          <p className="title">Blogs Management</p>
+          <Link to="/blogs" style={{ textDecoration: "none" }}>
+            <li>
+              <EditLocationAltIcon className="icon" />
+              <span>Blogs</span>
+            </li>
+          </Link>
+
+
           <p className="title">USER</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
