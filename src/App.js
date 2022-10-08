@@ -16,6 +16,11 @@ import LocReq from "./components/Sidebar Files/LocaReq";
 import Photoshoot from "./components/Sidebar Files/Photoshoot";
 import Contactus from "./components/Sidebar Files/Contactus";
 
+// const express = require("express");
+// const app = express();
+// const cors = require("cors");
+// app.use(cors());
+
 function App() {
 	const { darkMode } = useContext(DarkModeContext);
 
@@ -46,10 +51,10 @@ function App() {
 							<Route index element={<Incomplete />} />
 						</Route>
 						<Route path="contactus">
-							<Route index element={<Contactus/>} />
+							<Route index element={<Contactus />} />
 						</Route>
 						<Route path="photoshoot">
-							<Route index element={<Photoshoot/>} />
+							<Route index element={<Photoshoot />} />
 						</Route>
 					</Route>
 				</Routes>
