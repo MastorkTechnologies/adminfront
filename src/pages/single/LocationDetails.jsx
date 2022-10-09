@@ -46,6 +46,7 @@ const ListingPlace = () => {
 			.get("https://gorecce-backend.herokuapp.com/getlocations")
 			.then((response) => {
 				const data = response.data;
+				console.log("Response", data);
 				const value = data.locations.filter(
 					(item) => item.location_id === params.locationId
 				);
@@ -54,87 +55,89 @@ const ListingPlace = () => {
 			});
 	}, []);
 
-	console.log(data);
-
-	return (
-		<div className="home">
-			<Sidebar />
-			<div className="homeContainer">
-				<Navbar />
-				<div className="page">
-					<div className="nav">
-						{menuItems.map((item, index) => (
-							<div
-								key={index}
-								className={`menu-item ${item === section ? "selected" : ""}`}
-								onClick={() => {
-									handlesection(item);
-								}}>
-								{item}
-							</div>
-						))}
-					</div>
-					<div className="content">
-						{section === "Details & Description" ? (
-							<Details showSection={handlesection} data={data[0]} />
-						) : (
-							""
-						)}
-						{section === "Location" ? (
-							<Location showSection={handlesection} data={data[0]} />
-						) : (
-							""
-						)}
-						{section === "Amenities" ? (
-							<Amenities showSection={handlesection} data={data[0]} />
-						) : (
-							""
-						)}
-						{section === "Photo" ? (
-							<Photo showSection={handlesection} data={data[0]} />
-						) : (
-							""
-						)}
-						{section === "Features" ? (
-							<Features showSection={handlesection} data={data[0]} />
-						) : (
-							""
-						)}
-						{section === "Do's & Don'ts" ? (
-							<Dondont showSection={handlesection} data={data[0]} />
-						) : (
-							""
-						)}
-						{section === "Pricing" ? (
-							<Pricing showSection={handlesection} data={data[0]} />
-						) : (
-							""
-						)}
-						{section === "Rules of the Host" ? (
-							<Rules showSection={handlesection} data={data[0]} />
-						) : (
-							""
-						)}
-						{section === "Timings" ? (
-							<Timings showSection={handlesection} data={data[0]} />
-						) : (
-							""
-						)}
-						{section === "Contact Details" ? (
-							<Contact showSection={handlesection} data={data[0]} />
-						) : (
-							""
-						)}
-						{section === "GST Details" ? (
-							<Gst showSection={handlesection} data={data[0]} />
-						) : (
-							""
-						)}
+	if (data === "") {
+		return "";
+	} else {
+		return (
+			<div className="home">
+				<Sidebar />
+				<div className="homeContainer">
+					<Navbar />
+					<div className="page">
+						<div className="nav">
+							{menuItems.map((item, index) => (
+								<div
+									key={index}
+									className={`menu-item ${item === section ? "selected" : ""}`}
+									onClick={() => {
+										handlesection(item);
+									}}>
+									{item}
+								</div>
+							))}
+						</div>
+						<div className="content">
+							{section === "Details & Description" ? (
+								<Details showSection={handlesection} data={data[0]} />
+							) : (
+								""
+							)}
+							{section === "Location" ? (
+								<Location showSection={handlesection} data={data[0]} />
+							) : (
+								""
+							)}
+							{section === "Amenities" ? (
+								<Amenities showSection={handlesection} data={data[0]} />
+							) : (
+								""
+							)}
+							{section === "Photo" ? (
+								<Photo showSection={handlesection} data={data[0]} />
+							) : (
+								""
+							)}
+							{section === "Features" ? (
+								<Features showSection={handlesection} data={data[0]} />
+							) : (
+								""
+							)}
+							{section === "Do's & Don'ts" ? (
+								<Dondont showSection={handlesection} data={data[0]} />
+							) : (
+								""
+							)}
+							{section === "Pricing" ? (
+								<Pricing showSection={handlesection} data={data[0]} />
+							) : (
+								""
+							)}
+							{section === "Rules of the Host" ? (
+								<Rules showSection={handlesection} data={data[0]} />
+							) : (
+								""
+							)}
+							{section === "Timings" ? (
+								<Timings showSection={handlesection} data={data[0]} />
+							) : (
+								""
+							)}
+							{section === "Contact Details" ? (
+								<Contact showSection={handlesection} data={data[0]} />
+							) : (
+								""
+							)}
+							{section === "GST Details" ? (
+								<Gst showSection={handlesection} data={data[0]} />
+							) : (
+								""
+							)}
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 };
 
 export default ListingPlace;
